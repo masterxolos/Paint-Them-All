@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dye
+  - YellowDye
+  - BlueDye
+  - RedDye
+  - GameEndCheck
   layers:
   - Default
   - TransparentFX

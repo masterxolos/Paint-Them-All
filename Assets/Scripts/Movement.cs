@@ -13,10 +13,7 @@ public class Movement : MonoBehaviour
     [SerializeField, ReadOnly] private float movementSpeed;
     [SerializeField, ReadOnly] private float controlSpeed;
   
-    void Start()
-    {
-
-    }
+  
 
     void Update()
     {
@@ -33,7 +30,7 @@ public class Movement : MonoBehaviour
         if (isTouching)
         {
             touchPosX += Input.GetAxis("Mouse X") * controlSpeed * Time.fixedDeltaTime;
-            Debug.Log(touchPosX);
+            
         }
 
         transform.position = new Vector3(touchPosX, transform.position.y, transform.position.z);
