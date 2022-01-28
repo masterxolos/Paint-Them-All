@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class PaintCollector : MonoBehaviour
 {
-    private int dyeNum;
+    [SerializeField] private Animator m_Animator;
+    [SerializeField] private Movement m_Movement;
+    private int redDyeNum;
+    private int yellowDyeNum;
+    private int blueDyeNum;
     void Start()
     {
         
@@ -19,11 +23,32 @@ public class PaintCollector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Dye"))
+        if (other.gameObject.CompareTag("YellowDye"))
         {
             Destroy(other.gameObject);
-            dyeNum++;
-            Debug.Log(dyeNum);
+            yellowDyeNum++;
+
+        }
+        else 
+        if (other.gameObject.CompareTag("BlueDye"))
+        {
+            Destroy(other.gameObject);
+            blueDyeNum++;
+
+        }
+        else
+        if (other.gameObject.CompareTag("RedDye"))
+        {
+            Destroy(other.gameObject);
+            redDyeNum++;
+
+        }
+        else
+        if (other.gameObject.CompareTag("GameEndCheck"))
+        {
+            Destroy(other.gameObject);
+            m_Animator.SetBool("shoot", true);
+            m_Movement.enabled = false;
         }
     }
 }
